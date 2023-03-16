@@ -11,8 +11,87 @@
       <h2 class="header-title">Welcome test@gmail.com!</h2>
     </header>
     <div class="body-container">
-      <div class="input-data"></div>
-      <div class="crud-table"></div>
+      <div class="input-data">
+        <form>
+          <input type="text" id="inputName" placeholder="Name" />
+          <input type="text" id="inputEmail" placeholder="Email" />
+          <input type="text" id="inputAge" placeholder="Age" />
+          <button
+            type="button"
+            class="add-data"
+            id="addData"
+            onclick="addData()"
+          >
+            Add data
+          </button>
+        </form>
+      </div>
+      <div class="crud-table">
+        <table id="dataTable" class="data-table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Age</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Ferdy Sambo</td>
+              <td>50</td>
+              <td>ferdy@sambo.com</td>
+              <td>
+                <button type="button" class="edit-data" onclick="editData(0)">
+                  Edit
+                </button>
+                <button
+                  type="button"
+                  class="remove-data"
+                  onclick="removeData(0)"
+                >
+                  Remove
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td>Puan Maharani</td>
+              <td>50</td>
+              <td>puanm@harani.com</td>
+              <td>
+                <button type="button" class="edit-data" onclick="editData(0)">
+                  Edit
+                </button>
+                <button
+                  type="button"
+                  class="remove-data"
+                  onclick="removeData(0)"
+                >
+                  Remove
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td>Rina</td>
+              <td>24</td>
+              <td>ina@rocketmail.com</td>
+              <td>
+                <button type="button" class="edit-data" onclick="editData(0)">
+                  Edit
+                </button>
+                <button
+                  type="button"
+                  class="remove-data"
+                  onclick="removeData(0)"
+                >
+                  Remove
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
+    <script src="table.js"></script>
   </body>
 </html>
