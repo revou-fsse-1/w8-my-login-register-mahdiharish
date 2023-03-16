@@ -8,7 +8,7 @@ document.getElementById("signInBtn").addEventListener(
     if (!emailRegex.test(emailSignIn)) {
       document.getElementById("emailValidation").innerHTML = "Invalid email!";
     } else {
-      document.getElementById("emailValidation").innerHTML - "";
+      document.getElementById("emailValidation").innerHTML = "";
     }
   })
 );
