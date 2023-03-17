@@ -46,6 +46,14 @@ document.getElementById("registerBtn").addEventListener("click", function (e) {
     validPassword = false;
   }
   if (validEmail && validPassword) {
+    const isEmailRegistered = userList.some(
+      (user) => user.email === email.value
+    );
+    if (isEmailRegistered) {
+      document.getElementById("emailValidation").innerHTML =
+        "Email is already registered!";
+      return;
+    }
     userList.push({ email: email.value, password: password.value });
     localStorage.setItem("users", JSON.stringify(userList));
     window.location.href = "./signin/signin.html";
