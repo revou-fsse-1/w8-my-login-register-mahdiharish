@@ -56,11 +56,11 @@ function showData() {
     row += "<td>" + data[i].email + "</td>";
     row += "<td>" + data[i].age + "</td>";
     row +=
-      "<td><button class='edit' type='button' onclick='editData()" +
+      "<td><button class='edit' type='button' onclick='editData(" +
       i +
       ")'>Edit</button>";
     row +=
-      "<button class='delete' type='button' onclick='deleteData()" +
+      "<button class='delete' type='button' onclick='deleteData(" +
       i +
       ")'>Delete</button></td>";
     row += "</tr>";
@@ -73,8 +73,10 @@ function addData() {
   let name = document.getElementById("inputName").value;
   let email = document.getElementById("inputEmail").value;
   let age = document.getElementById("inputAge").value;
-  if (checkName() !== false && checkEmail() !== false && checkAge() !== false)
+  if (checkName() !== false && checkEmail() !== false && checkAge() !== false) {
     data.push({ name, email, age });
+    localStorage.setItem("data", JSON.stringify(data));
+  }
   showData();
 }
 document.getElementById("addData").addEventListener("click", addData());
@@ -96,5 +98,9 @@ function deleteData(i) {
 
 // SHOW DATA ON LOAD
 window.onload = function () {
+  let storedData = localStorage.getItem("data");
+  if (storedData !== null) {
+    data = JSON.parse(storedData);
+  }
   showData();
 };
