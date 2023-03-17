@@ -1,6 +1,6 @@
 // CHECK EMAIL
-document.getElementById("signInBtn").addEventListener(
-  "click",
+document.getElementById("emailSignIn").addEventListener(
+  "input",
   (checkEmail = () => {
     const emailSignIn = document.getElementById("emailSignIn").value;
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -14,8 +14,8 @@ document.getElementById("signInBtn").addEventListener(
 );
 
 // CHECK PASSWORD
-document.getElementById("signInBtn").addEventListener(
-  "click",
+document.getElementById("pwSignIn").addEventListener(
+  "input",
   (checkPassword = () => {
     const passwordSignIn = document.getElementById("pwSignIn").value;
     const passwordRegex =
