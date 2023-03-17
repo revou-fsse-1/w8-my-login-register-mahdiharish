@@ -38,21 +38,24 @@ document.getElementById("registerBtn").addEventListener("click", function (e) {
   e.preventDefault();
   const email = document.getElementById("registerEmail");
   const password = document.getElementById("registerPassword");
-  let validUser = true;
+  let validEmail = true;
+  let validPassword = true;
   if (!checkRegisterEmail(email)) {
     document.getElementById("emailValidation").innerHTML = "Invalid email!";
-    validUser = false;
+    validEmail = false;
   } else {
     document.getElementById("emailValidation").innerHTML = "";
+    validEmail = true;
   }
   if (!checkRegisterPassword(password)) {
     document.getElementById("passwordValidation").innerHTML =
       "Must contain at least 8 characters, one uppercase, lowercase, number, and symbol!";
-    validUser = false;
+    validPassword = false;
   } else {
     document.getElementById("passwordValidation").innerHTML = "";
+    validPassword = true;
   }
-  if (validUser) {
+  if (validEmail && validPassword) {
     userList.push({ email: email.value, password: password.value });
     localStorage.setItem("users", JSON.stringify(userList));
     window.location.href = "./signin/signin.html";
