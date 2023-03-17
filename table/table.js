@@ -73,23 +73,24 @@ function addData() {
   let name = document.getElementById("inputName").value;
   let email = document.getElementById("inputEmail").value;
   let age = document.getElementById("inputAge").value;
-  data.push({ name, email, age });
+  if (checkName() !== false && checkEmail() !== false && checkAge() !== false)
+    data.push({ name, email, age });
   showData();
 }
 document.getElementById("addData").addEventListener("click", addData());
 
 // EDIT DATA
-function editData(index) {
+function editData(i) {
+  let namePrompt = prompt("Edit Name", data[i].name);
+  let emailPrompt = prompt("Edit Email", data[i].email);
+  let agePrompt = prompt("Edit Age", data[i].age);
   data[index] = { name: name, email: email, age: age };
-  let namePrompt = prompt("Edit Name", data[index].name);
-  let emailPrompt = prompt("Edit Email", data[index].email);
-  let agePrompt = prompt("Edit Age", data[index].age);
   showData();
 }
 
 // DELETE DATA
-function deleteData(index) {
-  data.splice(index, 1);
+function deleteData(i) {
+  data.splice(i, 1);
   showData();
 }
 
