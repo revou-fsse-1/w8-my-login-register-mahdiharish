@@ -31,7 +31,9 @@ document.getElementById("registerPassword").addEventListener(
 );
 
 // REGISTER NEW USER
-const userList = JSON.parse(localStorage.getItem("userList")) || [];
+const userList = JSON.parse(localStorage.getItem("users")) || [
+  { email: "admin@gmail.com", password: "Admin123!" },
+];
 document.getElementById("registerBtn").addEventListener("click", function (e) {
   e.preventDefault();
   const email = document.getElementById("registerEmail");
@@ -51,7 +53,8 @@ document.getElementById("registerBtn").addEventListener("click", function (e) {
     document.getElementById("passwordValidation").innerHTML = "";
   }
   if (validUser) {
-    registerUser(email, password);
-    window.location.href = "signin/signin.html";
+    userList.push({ email: email.value, password: password.value });
+    localStorage.setItem("users", JSON.stringify(userList));
+    window.location.href = "./signin/signin.html";
   }
 });
