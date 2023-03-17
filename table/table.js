@@ -86,13 +86,23 @@ function editData(i) {
   let namePrompt = prompt("Edit Name", data[i].name);
   let emailPrompt = prompt("Edit Email", data[i].email);
   let agePrompt = prompt("Edit Age", data[i].age);
-  data[index] = { name: name, email: email, age: age };
-  showData();
+  if (
+    checkName(namePrompt) !== false &&
+    checkEmail(emailPrompt) !== false &&
+    checkAge(agePrompt) !== false
+  ) {
+    data[i].name = namePrompt;
+    data[i].email = emailPrompt;
+    data[i].age = agePrompt;
+    localStorage.setItem("data", JSON.stringify(data));
+    showData();
+  }
 }
 
 // DELETE DATA
 function deleteData(i) {
   data.splice(i, 1);
+  localStorage.setItem("data", JSON.stringify(data));
   showData();
 }
 
