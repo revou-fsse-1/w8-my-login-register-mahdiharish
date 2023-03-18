@@ -37,7 +37,7 @@ document.getElementById("inputEmail").addEventListener("input", checkEmail);
 let checkAge = () => {
   let ageInput = document.getElementById("inputAge").value;
   let ageError = document.getElementById("ageError");
-  if (isNaN(ageInput)) {
+  if (isNaN(ageInput) || ageInput < 0 || ageInput === "") {
     ageError.style.display = "block";
     return false;
   } else {
@@ -79,7 +79,7 @@ function addData() {
   }
   showData();
 }
-document.getElementById("addData").addEventListener("click", addData());
+document.getElementById("addData").addEventListener("click", addData);
 
 // EDIT DATA
 function editData(i) {
